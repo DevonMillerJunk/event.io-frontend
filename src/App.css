@@ -486,7 +486,7 @@ table th {
 }
 
 .login-label {
-  margin-left: auto;
+  text-align: right;
 }
 
 .btn-indent {

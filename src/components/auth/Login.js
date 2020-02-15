@@ -30,7 +30,6 @@ const Login = () =>{
                 <label
                     htmlFor='email'
                     className='login-label'
-                    style={{ marginLeft: '16.5rem' }}
                 >
                     Email:
                 </label>
