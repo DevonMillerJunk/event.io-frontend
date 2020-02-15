@@ -22,7 +22,7 @@ const Login = () =>{
           <h1 className='mac-header-nbm'>Event</h1>
           <h1 style={{ textAlign: 'center' }}>io</h1>
           <div style={{ width: '30%', margin: '0 auto' }}>
-            <img src={radar} alt="Logo" class="center" />
+            <img src={radar} alt="Logo" className="center" />
           </div>
           <div style={{ margin: '0 auto' }}>
             <form onSubmit={onSubmit}>

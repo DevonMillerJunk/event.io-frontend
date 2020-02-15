@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Crimson+Pro:ital,wght@0,700;1,700');
 
 /* Global Styles */
 :root {
@@ -16,7 +16,7 @@
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Crimson+Pro:ital,wght@0,700;1,700', sans-serif;
   font-size: 1rem;
   line-height: 1.6;
   background-color: #fff;
