@@ -1,6 +1,7 @@
 import React from 'react';
 import Event from '../events/Event';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import { Link } from 'react-router-dom';
 
 const Home = () =>{
     const events = [{
@@ -59,17 +60,23 @@ const Home = () =>{
 
     return(
         <TransitionGroup>
-            <div className='card-ext card-lg'>
-                <div className='grid-hor'>
-                    {iter8(events).map(component => (component))}
-                </div>
-            </div>
+            <div style={{ padding: '0 0 3rem' }}>
                 <div className='card-ext card-lg'>
-                    <div className='grid-hor-f' >
-                        <div className='far fa-plus-square'/>
-                        <h1 style={{ fontWeight: 'bolder', fontSize: '2.5rem', textAlign: 'left' }}>Create new Event</h1>
+                    <div className='grid-hor'>
+                        {iter8(events).map(component => (component))}
                     </div>
                 </div>
+            </div>
+            <div style={{ padding: '0 0 2rem' }}>
+                <Link to='/create'>
+                    <div className='card-ext card-md'>
+                        <div className='grid-hor-f'>
+                            <div className='far fa-plus-square' style={{ padding: '0 1rem' }}/>
+                            <h1 style={{ fontWeight: 'bolder', fontSize: '2.5rem', textAlign: 'left' }}>Create new Event</h1>
+                        </div>
+                    </div>
+                </Link>
+            </div>
             <h1 style={{ fontWeight: 'bolder', fontSize: '2.5rem', marginLeft: '22%' }}>Active Events</h1>
             <div className='card-ext card-lg'>
                 <div className='grid-hor'>

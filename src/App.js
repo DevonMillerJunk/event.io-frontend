@@ -6,6 +6,7 @@ import Navbar from './components/layout/Navbar';
 import Home from './components/pages/Home';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
+import NewEvent from './components/events/NewEvent';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
             <Route exact path='/' component={Home}/>
             <Route exact path='/login' component={Login} />
             <Route exact path='/register' component={Register} />
+            <Route exact path='/create' component={NewEvent} />
           </Switch>
         </Fragment>
       </Router>
