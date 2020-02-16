@@ -4,11 +4,11 @@ import axios from 'axios';
 import eventReducer from './eventReducer';
 import EventContext from './eventContext';
 import { 
-    REGISTER_SUCCESS,
-    REGISTER_FAIL,
+    REGISTER_EVENT_SUCCESS,
+    DELETE_EVENT,
     GET_EVENTS,
     EVENT_ERROR,
-    EVENT_SUCCESS,
+    CREATE_EVENT,
     GET_EVENT,
     UPDATE_EVENT
 } from '../types';
@@ -19,7 +19,8 @@ const EventState = props => {
         title: null,
         description: null,
         location: null,
-        timeline: null
+        timeline: null,
+        events: null
     };
 
     const [state, dispatch] = useReducer(eventReducer, initialState);
@@ -46,7 +47,7 @@ const EventState = props => {
         try {
             const res = await axios.post("/events", FormData, config);
             dispatch({
-                type: EVENT_SUCCESS,
+                type: CREATE_EVENT,
                 payload: res
             });
 
@@ -98,7 +99,7 @@ const EventState = props => {
         const body = { uId };
         try {
             const res = axios.post(`events/:${eId}/register`, body, config);
-            dispatch({ type: 'REGISTER_SUCCESS', payload: res.data });
+            dispatch({ type: REGISTER_EVENT_SUCCESS, payload: res.data });
         } catch (error) {
             dispatch({ type: 'EVENT_ERROR' });
         }
@@ -112,6 +113,7 @@ const EventState = props => {
                 location: state.location,
                 ownerId: state.ownerId,
                 timeline:state.timeline,
+                events: state.events,
                 createEvent,
                 getEvents,
                 getEvent,

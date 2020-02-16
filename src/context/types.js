@@ -11,3 +11,6 @@ export const EVENT_ERROR = 'EVENT_ERROR';
 export const EVENT_SUCCESS = 'EVENT_SUCCESS';
 export const GET_EVENT = 'GET_EVENT';
 export const UPDATE_EVENT = 'UPDATE_EVENT';
+export const REGISTER_EVENT_SUCCESS = 'REGISTER_EVENT_SUCCESS';
+export const DELETE_EVENT = 'DELETE_EVENT';
+export const CREATE_EVENT = 'CREATE_EVENT';
