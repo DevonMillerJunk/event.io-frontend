@@ -1,24 +1,36 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useContext } from 'react';
+import AuthContext from '../../context/auth/authContext';
+import { Link, Redirect } from 'react-router-dom';
 
 import radar from './radar1.png';
 
-const Login = () =>{
+const Login = () => {
+    const authContext = useContext(AuthContext);
+
+    const { login, isAuthenticated } = authContext;
 
     const [user, setUser] = useState({
         email: '',
         password: ''
-      });
+    });
     
     const { email, password } = user;
 
     const onChange = e => setUser({ ...user, [e.target.name]: e.target.value });
 
     const onSubmit = e => {
-        console.log(email, password);
+        e.preventDefault();
+        if (email === '' || password === '') {
+        console.log('Please fill in all fields');
+        } else {
+            login({
+                email,
+                password
+            });
+        }
     }
-
-    return (
+    if(!isAuthenticated){
+      return (
         <div className='card card-nh'>
             <div className='grid-hor'>
                 <div style={{ textAlign: 'left' }}>
@@ -96,6 +108,9 @@ const Login = () =>{
             </div>
           </div>
       );
+    } else {
+        return <Redirect to='/' />;
+    }
 };
 
 export default Login;
