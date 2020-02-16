@@ -18,7 +18,7 @@ const NewEvent = () => {
       const authContext = useContext(AuthContext);
 
       const { createEvent } = eventContext;
-      const { user } = authContext;
+      const { current } = authContext;
     
       const { title, description, lat, long, startTime, endTime } = event;
 
@@ -40,7 +40,7 @@ const NewEvent = () => {
             let FormData = {
                 title: title,
                 description: description,
-                ownerId: user._id,
+                ownerId: current._id,
                 location: {
                     lat: lat,
                     long: long
