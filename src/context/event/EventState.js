@@ -47,13 +47,13 @@ const EventState = props => {
             const res = await axios.post("/events", FormData, config);
             dispatch({
                 type: EVENT_SUCCESS,
-                payload: res.data
+                payload: res
             });
 
         } catch (error) {
             dispatch({
                 type: EVENT_ERROR,
-                payload: error.response.msg.data
+                payload: error.response.msg
             })
         }
     }
@@ -98,7 +98,7 @@ const EventState = props => {
         const body = { uId };
         try {
             const res = axios.post(`events/:${eId}/register`, body, config);
-            dispatch({ type: 'REGISTER_USER_EVENT', payload: res.data });
+            dispatch({ type: 'REGISTER_SUCCESS', payload: res.data });
         } catch (error) {
             dispatch({ type: 'EVENT_ERROR' });
         }
@@ -115,7 +115,7 @@ const EventState = props => {
                 createEvent,
                 getEvents,
                 getEvent,
-                updateEvent,
+                // updateEvent,
                 delEvent,
                 regUserEvent
             }}

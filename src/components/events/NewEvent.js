@@ -1,19 +1,26 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import radar from '../auth/radar.png';
+
+import EventContext from '../../context/event/eventContext';
+import AuthContext from '../../context/auth/authContext';
 
 const NewEvent = () => {
     const [event, setEvent] = useState({
         title: '',
         description: '',
-        location: '',
-        time: {
-            startTime: '',
-            endTime: ''
-        }
+        lat: '',
+        long: '',
+        startTime: '',
+        endTime: ''
       });
+
+      const eventContext = useContext(EventContext);
+      const authContext = useContext(AuthContext);
+
+      const { createEvent } = eventContext;
+      const { user } = authContext;
     
-      const { title, description, location, time } = event;
-      const { startTime, endTime } = time;
+      const { title, description, lat, long, startTime, endTime } = event;
 
       const onChange = e =>
         setEvent({ ...event, [e.target.name]: e.target.value });
@@ -23,13 +30,27 @@ const NewEvent = () => {
         if (
           title === '' ||
           description === '' ||
-          location === '' ||
+          lat === '' ||
+          long === '' ||
           startTime === '' ||
-          endTime === ''
+          endTime === '' 
         ) {
           console.log('Please fill out all fields.');
         }else {
-          console.log(title, description, location, startTime, endTime);
+            let FormData = {
+                title: title,
+                description: description,
+                ownerId: user._id,
+                location: {
+                    lat: lat,
+                    long: long
+                },
+                time: {
+                    starTime: startTime,
+                    endTime: endTime
+                }
+            }
+            createEvent(FormData);
         }
       };
 
@@ -53,7 +74,7 @@ const NewEvent = () => {
                         </label>
                         <input
                             type='text'
-                            name='name'
+                            name='title'
                             value={title}
                             placeholder='Johnny Appleseed'
                             onChange={onChange}
@@ -68,7 +89,7 @@ const NewEvent = () => {
                             Description
                         </label>
                         <input
-                            type='password'
+                            type='email'
                             name='description'
                             value={description}
                             onChange={onChange}
@@ -80,12 +101,27 @@ const NewEvent = () => {
                             className='login-label'
                             style={{ textAlign: 'right' }}
                         >
-                            Location
+                            Latitude
                         </label>
                         <input
-                            type='password'
-                            name='description'
-                            value={location}
+                            type='email'
+                            name='lat'
+                            value={lat}
+                            onChange={onChange}
+                            required
+                            style={{ marginLeft: 'auto', textAlign: 'right' }}
+                        />
+                        <label
+                            htmlFor='email'
+                            className='login-label'
+                            style={{ textAlign: 'right' }}
+                        >
+                            Longitude
+                        </label>
+                        <input
+                            type='email'
+                            name='long'
+                            value={long}
                             onChange={onChange}
                             required
                             style={{ marginLeft: 'auto', textAlign: 'right' }}
