@@ -97,7 +97,7 @@ const Register = () => {
                         value={password}
                         onChange={onChange}
                         required
-                        style={{ marginLeft: 'auto' }}
+                        style={{ marginLeft: 'auto', textAlign: 'right' }}
                     />
                     <label
                         htmlFor='email'
@@ -112,7 +112,7 @@ const Register = () => {
                         value={confirmPassword}
                         onChange={onChange}
                         required
-                        style={{ marginLeft: 'auto' }}
+                        style={{ marginLeft: 'auto', textAlign: 'right' }}
                     />
                     <div className='grid-hor'>
                             <Link to='/login'>

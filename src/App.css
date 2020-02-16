@@ -143,6 +143,25 @@ img {
   margin-right: auto;
 }
 
+.card-sm {
+  padding: 0.8rem;
+  border: #ccc 1px dotted;
+  margin: 0.2rem 0;
+  width: 40rem;
+  height: 13rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card-ext {
+  padding: 0.8rem;
+  border: #ccc 1px dotted;
+  margin: 0.2rem 0;
+  width: 56rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .card-norm {
   padding: 0.8rem;
   border: #ccc 1px dotted;
@@ -225,6 +244,12 @@ img {
   display: flex;
   align-items: center;
   justify-content: space-around;
+}
+
+.grid-hor-f {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .grid-3 {
