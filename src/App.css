@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 @import url('https://fonts.googleapis.com/css?family=Candal');
+@import url('https://fonts.googleapis.com/css?family=Rancho&effect=shadow-multiple');
 
 /* Global Styles */
 :root {
@@ -138,6 +139,16 @@ img {
   margin: 0.2rem 0;
   width: 55rem;
   height: 26rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card-norm {
+  padding: 0.8rem;
+  border: #ccc 1px dotted;
+  margin: 0.2rem 0;
+  width: 53rem;
+  height: 28.5rem;
   margin-left: auto;
   margin-right: auto;
 }
